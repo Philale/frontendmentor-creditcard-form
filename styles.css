@@ -1,0 +1,191 @@
+:root{
+    --light-gr-violet: hsl(270, 3%, 87%);
+    --dark-gr-violet: hsl(279, 6%, 55%);
+    ---very-dark-gr-violet: hsl(278, 68%, 11%);
+    --input-border: linear-gradient( hsl(249, 99%, 64%) to hsl(278, 94%, 30%));
+    --input-error: hsl(0, 100%, 66%);
+}
+
+body{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+.bg-main{
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: auto;
+}
+
+
+/* CARD VISUALIZATION */
+
+.card{
+    border-radius: 12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.card-front{
+    top: 33%;
+    left: 27%;
+}
+
+.circles{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.card-info{
+    position: absolute;
+    color: white;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+#card-number-displayed{
+    bottom: 75px;
+    left: 30px;
+    font-size: 1.8rem;
+}
+
+#card-name-displayed{
+    bottom: 30px;
+    left: 30px;
+    font-size: 0.9rem;
+}
+
+#card-date-displayed{
+    bottom: 30px;
+    right: 30px;
+    font-size: 0.9rem;
+}
+
+
+#card-cvc-displayed{
+    top: 111px;
+    right: 55px;
+    font-size: 0.9rem;
+}
+
+.card-back{
+    top: 65%;
+    left: 35%;
+}
+
+
+/* FORM STYLES */
+
+form{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 73%;
+    top: 50%;
+    width: 380px;
+}
+
+label{
+    font-size: 13px;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: bold;
+    margin: 25px 0 10px;
+}
+
+input{
+    border: 1px solid var( --light-gr-violet);
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    box-sizing: border-box; 
+    font-weight: bolder;
+}
+
+
+input:focus{
+    outline:none;
+    border: 1px solid var(---very-dark-gr-violet);
+}
+
+input::placeholder{
+    color: var(--light-gr-violet);
+    font-weight: 500;
+}
+
+
+/* remove the arrows of a number input */
+
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+input[type="submit"]{
+    margin-top: 30px;
+    background-color: var(---very-dark-gr-violet);
+    color: var(--light-gr-violet);
+    font-weight:500;
+    height: 50px;
+}
+
+.invalid-input{
+    border:1px solid hsl(0, 100%, 66%);
+}
+
+/* error message is displayed with the pseudoelement ::after, the content is set by an attribute (error-message) that the container of the invalid input has */
+
+.invalid-container::after{
+    content: attr(error-message);
+    color: hsl(0, 100%, 66%);
+    font-size: 0.8rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+}
+
+
+/* Position expire date and cvc next to each other  */
+
+#inline-container{
+    display: flex;
+}
+
+#inline-container > *{
+    width: 50%;
+}
+
+.expire-input{
+    width: 44%;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.expire-input:nth-of-type(1){
+    float: left;
+}
+
+
+/* SUBMITTED STATE */
+
+#submitted-form{
+    text-align: center;
+    visibility: hidden;
+    font-weight: 500;
+}
+
+#submitted-form h1{
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+#submitted-form p {
+    color: var(--dark-gr-violet);
+}
+
+#submitted-form svg{
+    position: relative;
+    bottom: 15px;
+}
